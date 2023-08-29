@@ -2,7 +2,7 @@
 This code example demonstrates how to run general detection using VAAL. The C code in detectimg.c contains the sample application that runs general detection and demonstrates how it can be modified to fit your needs. This repo contains information on how to run this application on Maivin using Torizon, directly using Docker on Maivin, on an EVK as well as on one's desktop.
 
 # Sample Data
-For this code example, we do provide a sample RTM and image to be used. The RTM file can be found [here](https://github.com/DeepViewML/peopledetect/releases/tag/1.0) and the sample image can be found [here](https://support.deepviewml.com/hc/en-us/articles/18449799292941). Once you have downloaded these files, place them into the appconfig_0 folder of this repository.
+For this code example, we do provide a sample RTM and image to be used. The RTM file can be found [here](https://github.com/DeepViewML/bodypose/releases/tag/1.0) and the sample image can be found [here](https://support.deepviewml.com/hc/en-us/articles/18449799292941). Once you have downloaded these files, place them into the appconfig_0 folder of this repository.
 
 ## VAAL Workflow
 When creating a VAAL Application, there are 3 stages involved, Initialization, Inference Loop, and Deallocation. The Inference Loop stage is composed of three main components, preprocessing, inference, and post-processing. We will examine each and provide a general overview and how to make modifications within those to tailor the application to one's parameters.

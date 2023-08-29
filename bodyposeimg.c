@@ -117,17 +117,14 @@ main(int argc, char* argv[])
     VAALKeypoint* keypoints = calloc(max_keypoints, sizeof(VAALKeypoint));
     VAALContext  *pose_ctx  = NULL;
 
-    if (strcmp(model, "HumanPose") == 0) {
-        pose_ctx = vaal_model_probe(engine, model_type_human_pose);
+    pose_ctx = vaal_context_create(engine);
+    err = vaal_load_model_file(pose_ctx, model);
+    if (err) {
+        vaal_context_release(pose_ctx);
+        pose_ctx = vaal_model_probe(engine, model);
         if (!pose_ctx) {
-            return EXIT_FAILURE;
-        }
-    } else {
-        pose_ctx = vaal_context_create(engine);
-        err = vaal_load_model_file(pose_ctx, model);
-        if (err) {
             fprintf(stderr, "failed to load model: %s\n", vaal_strerror(err));
-            return EXIT_FAILURE;
+        return EXIT_FAILURE;
         }
     }
 
